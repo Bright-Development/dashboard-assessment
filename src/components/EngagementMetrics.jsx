@@ -4,7 +4,7 @@ const EngagementMetrics = () => {
   return (
     <div className="border-2 border-dashed border-gray-200 rounded-lg p-4">
       <p className="text-gray-500 text-center mb-2">
-        Implement Engagement Chart Here
+        TODO: #4 Implement Engagement Chart Here
       </p>
       <div className="h-64 bg-gray-50 flex items-center justify-center">
         <div className="text-center">
