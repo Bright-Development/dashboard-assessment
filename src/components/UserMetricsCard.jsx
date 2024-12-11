@@ -4,19 +4,19 @@ import { fetchMetrics } from "../api/mockApi";
 // This component intentionally has performance issues to fix
 export const UserMetricsCard = () => {
   const [metrics, setMetrics] = React.useState(null);
-
   // TODO: #1 Any thing you might change with data transformation function?
-  const transformData = (data) => {
-    return data.map((item) => ({
-      ...item,
-      engagement: item.engagement * 100,
-      sessionLength: Math.round(item.sessionLength),
-      date: new Date(item.date).toLocaleDateString(),
-    }));
-  };
 
   // TODO: #2 What might we fix with this useEffect?
   React.useEffect(() => {
+    const transformData = (data) => {
+      return data.map((item) => ({
+        ...item,
+        engagement: item.engagement * 100,
+        sessionLength: Math.round(item.sessionLength),
+        date: new Date(item.date).toLocaleDateString(),
+      }));
+    };
+
     const fetchData = async () => {
       try {
         const data = await fetchMetrics();
@@ -27,10 +27,9 @@ export const UserMetricsCard = () => {
     };
 
     fetchData();
-  });
+  }, []);
 
   if (!metrics) return <div>Loading...</div>;
-
   // TODO: #3 How might we fix rerendering issue?
   return (
     <div

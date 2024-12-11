@@ -22,8 +22,9 @@ export const DashboardView = () => {
         setLoading(false);
       }
     };
-
-    fetchData();
+    setInterval(() => {
+      fetchData();
+    }, 5000); // 5 seconds
   }, []);
   return (
     <div className="space-y-6">
